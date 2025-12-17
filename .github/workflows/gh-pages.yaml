@@ -10,6 +10,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write  # Даём разрешение на запись
+    
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -32,3 +35,4 @@ jobs:
       with:
         folder: build
         branch: gh-pages
+        token: ${{ secrets.GITHUB_TOKEN }}
